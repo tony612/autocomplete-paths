@@ -11,7 +11,7 @@ class PathsProvider
   cache: []
 
   requestHandler: (options = {}) =>
-    return [] unless options.editor? and options.buffer? and options.cursor?
+    return [] unless options.editor? and options.buffer? and options.cursor? and options.scopeChain.match(/\.string/)
     editorPath = options.editor?.getPath()
     return [] unless editorPath?.length
     basePath = path.dirname(editorPath)
